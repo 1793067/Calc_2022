@@ -1,0 +1,46 @@
+#cssmenu {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 0.7vw;
+}
+
+#cssmenu ul {
+    text-transform: uppercase;
+}
+
+
+/* все элементы ul внутри главного родительского блока ul*/
+
+#cssmenu ul ul {
+    visibility: hidden; 
+    position: absolute;
+    text-transform: none;
+    width: 20vw;
+}
+
+
+/* все элементы ul внутри элемента "а" при наведении курсора на него*/
+#cssmenu li:hover > ul {
+    visibility: visible;
+    left: 15%; 
+    top: 85%;
+}
+
+#cssmenu ul li:hover {  
+    background: #e9e9e9;
+    background: #1292f3;
+    color: white;
+}
+
+#cssmenu ul ul li {
+    border-bottom: none;
+    line-height: 110%;
+    padding: 0.5vw 1vw;
+    font-size: 0.6vw;
+}
+
+#cssmenu ul ul > li {
+    border-left: 1px solid white;
+    /*background: #305c5a;*/
+    box-shadow: 0 0 10px rgb(177, 173, 173);
+}
+
