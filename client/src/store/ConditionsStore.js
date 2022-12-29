@@ -1,3 +1,5 @@
+import {makeAutoObservable} from 'mobx';
+
 export default class ConditionsStore {
     constructor() {
 
@@ -5,12 +7,13 @@ export default class ConditionsStore {
             {name: 'категория надежности', value: ['первая', 'вторая', 'третья']},
             {name: 'напряжение', value: ['0,4 кВ','6-10 кВ','20 кВ','более 20 кВ']},
             {name: 'заявитель', value: ['юридическое лицо или индивидуальный предприниматель','физическое лицо']},
-            {name: 'расстояние до электричесих сетей', value: ['до 500 метров включительно','свыше 500 метров']},
+            {name: 'расстояние до электрических сетей', value: ['до 500 метров включительно','свыше 500 метров']},
             {name: 'вновь присоединяемая мощность', value: ''},
             {name: 'ранее присоединенная мощность', value: ''}
     ];
 
         this.selectedProps = {};
+        makeAutoObservable(this)
     }
 
     setProperty(propName,  propValue) {

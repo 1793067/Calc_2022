@@ -20,7 +20,7 @@ export default function NaviBar() {
             </Navbar.Brand>
                 <Nav className="me-auto">
                     <NavLink className="nav-link" to={HOME_ROUTE}>Расчет платы</NavLink>
-                    <NavLink className="nav-link" to={TARIFF_ROUTE}>Приказ №666</NavLink>
+                    <NavLink className="nav-link" to={TARIFF_ROUTE}>Приказ №460-ТР</NavLink>
                     <NavLink className="nav-link" to={LETTERS_ROUTE}>Разьяснения ФАС</NavLink>
                     <NavLink className="nav-link" to={USER_ROUTE}>Сохраненные расчеты</NavLink>
                 </Nav>

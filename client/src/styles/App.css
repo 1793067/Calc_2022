@@ -8,15 +8,15 @@
 	display:block;
 	top: 4vw;
 	float:left;
-	width: 36vw;
+	width: 30vw;
 	
 }
 
 .right{
 	display:block;
 	float:left;
-	width: 60vw;
-	margin-left: 37vw;
+	width: 68vw;
+	margin-left: 31vw;
 	margin-top: 3vw;
 }
 
@@ -31,4 +31,24 @@
 
 .right tbody tr:hover td {
 	color: white;
+}
+
+
+.right thead tr:first-child th:nth-child(1) {
+	width: 3vw;
+}
+.right thead tr:first-child th:nth-child(2) {
+	width: 5vw;
+}
+.right thead tr:first-child th:nth-child(3) {
+	width: 25vw;
+}
+.right thead tr:first-child th:nth-child(4) {
+	width: 10vw;
+}
+.right thead tr:first-child th:nth-child(5) {
+	width: 10vw;
+}
+.right thead tr:first-child th:nth-child(6) {
+	width: 10vw;
 }

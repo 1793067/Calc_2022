@@ -1,30 +1,33 @@
 import {treeMap, tree} from '../initial_data/dendritic';
 import '../styles/navList.css';
+import { useContext } from 'react';
+import { Context } from '../index';
 
 //при инициализации компонента List используются стили bootstrap
 //затем компонент оборачивается в элемент nav, стили которого
 //прописаны в файле стилей navList.css
 
 export default function List() {
+  const {tableProps} = useContext(Context)
   
-  function createList(tree) {
+  function createList(tree, acc) {
     return (
           <ul className="list-group list-group-flush">
             {treeMap(tree, (chunk) => {
-            if(typeof tree[chunk] === 'string') return (
+            if(tree[chunk].hasOwnProperty('value')) return (
               <li
                 href="#" 
                 className="list-group-item list-group-item-action"
                 key={chunk} 
-                value={tree[chunk]} 
-                onClick={() => alert('lflf')}
+                value={chunk} 
+                onClick={() => tableProps.setPosition(acc, tree[chunk].value, tree[chunk].number)}
                 >{chunk}</li>
               )
             return (
               <li 
                 className="list-group-item list-group-item-action"
                 key={chunk}
-              >{chunk}{createList(tree[chunk])}</li>
+              >{chunk}{createList(tree[chunk], `${acc} ${chunk}`)}</li>
             )
           })}
           </ul>  
@@ -33,7 +36,7 @@ export default function List() {
   
   return (
     <div id="cssmenu">
-      {createList(tree)}
+      {createList(tree, '')}
     </div>
     
   )

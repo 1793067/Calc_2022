@@ -13,7 +13,7 @@
     3.3 создаем новый репозиторий на Github:
         https://github.com/ -> авторизуемся -> "+" -> создаем репозиторий
     3.4 заливка проекта на удаленный репозиторий:
-        git remote add origin https://github.com/1793067/online-store.git
+        git remote add origin https://github.com/1793067/Calc_2022.git
         git branch -M main
         git push -u origin main 
     3.5 обновление файлов удаленного репозитория
@@ -66,16 +66,37 @@
         3.6.4 В файле index.js:
             3.6.4.1 импортируем createContext из React, ConditionStore из папки store
             3.6.4.2 создадим и экспортируем переменную Context
-                index.js: export const Context = createContext(null);
+#                `index.js:` export const Context = createContext(null);
             3.6.4.3 обернем тег <App /> в тег <Context.Provider>
             3.6.4.4 свойству value тега Context.Provider присвоим значение объекта
                 3.6.4.4 добавим созданному объекту свойство conditions, равное новому экземпляру импортированного класса ConditionStore
-                    index.js: <Context.Provider value={{ conditions: new ConditionsStore() }}>
-                                <App />
-                            </Context.Provider>
+#                    `index.js:` <Context.Provider value={{ conditions: new ConditionsStore() }}>
+#                                <App />
+#                            </Context.Provider>
         3.6.5 В компоненте Conditions:
             3.6.5.1 импортируем useContext из React, Context из index.js
-                3.6.5.1.1 деструктурируем контексьт
-                    conditions.js: const {conditions} = useContext(Context)
+                3.6.5.1.1 деструктурируем контект
+#                    `conditions.js:` const {conditions} = useContext(Context)
             3.6.5.2 в элементе select в свойстве onChange используем контекст (записываем в его свойства результат выбора select):
-                conditions.js: onChange={(event) => conditions.setProperty(property.name, event.target.value)}
+#                `conditions.js:` onChange={(event) => conditions.setProperty(property.name, event.target.value)}
+        3.6.6 ВАЖНО!! При изменении свойств внутри объекта провайдера {{ conditions: new ConditionsStore() }} React не перерендеривает компоненты, так как сам объект не изменяется
+        Необходимо сделать поля данного объекта наблюдаемыми. И тогда все компоненты, используемые данный контекст будут перерендериваться.
+        (Для некоторых компонентов, можно создать собственный const [state, setState] = useState(useContext(Context)), но в нашем случае независимые компоненты должны управлять поведением друг друга
+            3.6.6.1 Устанавливаем необходимые зависимости mobx - стейт менеджер, mobx-react-lite - для связи mobx с функциональными компонентами React:
+#                `/client` npm i mobx mobx-react-lite
+            3.6.6.2 Импортируем функцию makeAutoObservable, вызываем ее в конструкторе объекта и передаем в нее параметром this
+#              `ConditionsStore.js:` import {makeAutoObservable} from 'mobx' в файл ConditionsStore.js
+#                                    export default class ConditionsStore {
+#                                        constructor() {
+#                                            ...some props...
+#                                            makeAutoObservable(this)
+#                                        }
+#                                            ...getters, settters...
+#                                    }
+            3.6.6.3 Импортируем { observer } from 'mobx-react-lite' и оборачиваем зависящий от контекста компонент в observer
+№            `Table.js:` const CalcTable = observer(.....)
+    3.7 ВАЖНО! Проброс Props дочерним компонентам и использование useEffect
+        Описать на примере реализации страницы Tariff
+    3.8 Просмотр PDF файлов в браузере
+        client: npm install react-pdf
+        3.8.1  

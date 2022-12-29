@@ -1,12 +1,11 @@
 import Form from 'react-bootstrap/Form';
-import { InputGroup } from 'react-bootstrap';
-import { useContext, useState } from 'react';
+import { Button, InputGroup } from 'react-bootstrap';
+import { useContext } from 'react';
 import { Context } from '../index';
 
 function Conditions() {
-    const {conditions} = useContext(Context)
-    const {props, selectedProps} = conditions;
-    const [state, setState] = useState(selectedProps);
+    const { conditions } = useContext(Context)
+    const { props } = conditions;
 
     return (
         <>
@@ -16,7 +15,6 @@ function Conditions() {
                                 <Form.Select
                                 onChange={(event) => {
                                     conditions.setProperty(property.name, event.target.value)
-                                    setState((prev) => ({...prev, [property.name]: event.target.value}))
                                     }}>
                                     <option hidden value>{property.name}</option>
                                     {property.value.map(variant => 
@@ -32,17 +30,16 @@ function Conditions() {
                             <Form.Control id={property.name}  
                             onChange={(event) => {
                                 conditions.setProperty(property.name, event.target.value)
-                                setState((prev) => ({...prev, [property.name]: event.target.value}))
                                 }}
                             />
                             <InputGroup.Text id={property.name} className="me-2">кВт</InputGroup.Text>
                         </InputGroup>
                     )
                     })}   
-            <br />
+             <div className="d-grid gap-2">
+            <Button variant="outline-secondary" className="ms-2">Export to .XLS</Button>
+            </div>
             <div className="d-flex">
-            <ul>{Object.keys(state).map(prop => <li key={prop}>{state[prop]}</li>)}</ul>
-            <ul>{Object.keys(selectedProps).map(prop => <li key={prop}>{selectedProps[prop]}</li>)}</ul>
             </div>
         </>    
     );
