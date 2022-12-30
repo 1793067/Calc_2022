@@ -29,7 +29,7 @@ initial_data
 /*
   typeName: [воздушные, линии, на жедлезобетонных опорах...]
 */                
-                return { typeName, value: (Number(value.replace(',', '.'))), number };
+                return { typeName, value: (Number(value.replace(',', '.')).toFixed(2)), number };
 
 
 /*{

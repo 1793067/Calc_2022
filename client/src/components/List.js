@@ -20,7 +20,7 @@ export default function List() {
                 className="list-group-item list-group-item-action"
                 key={chunk} 
                 value={chunk} 
-                onClick={() => tableProps.setPosition(acc, tree[chunk].value, tree[chunk].number)}
+                onClick={() => tableProps.setPosition(`${acc} ${chunk}`, tree[chunk].value, tree[chunk].number)}
                 >{chunk}</li>
               )
             return (
