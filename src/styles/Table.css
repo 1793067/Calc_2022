@@ -340,8 +340,8 @@ tfoot .indexes-tr input[type="number"] {
   }
 }
 
-.unselected td
-/*.unselected input[type="number"]*/ {
+.unselected td,
+.unselected input[type="number"] {
   animation-name: blink;
   animation-duration: 500ms;
   animation-iteration-count: 2;
