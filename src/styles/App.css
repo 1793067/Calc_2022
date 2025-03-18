@@ -20,35 +20,22 @@
 	margin-top: 3vw;
 }
 
-.right thead th {
-	text-align: center;
-	vertical-align: middle;
+.conditions-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;	
 }
 
-.right tbody tr:hover {
-	background: #1b9bff;
+.conditions-wrapper .conditions-select {
+	width: 50%;
 }
 
-.right tbody tr:hover td {
-	color: white;
+.conditions-select option {
+	height: 2vw;
 }
 
-
-.right thead tr:first-child th:nth-child(1) {
-	width: 3vw;
-}
-.right thead tr:first-child th:nth-child(2) {
-	width: 5vw;
-}
-.right thead tr:first-child th:nth-child(3) {
-	width: 25vw;
-}
-.right thead tr:first-child th:nth-child(4) {
-	width: 10vw;
-}
-.right thead tr:first-child th:nth-child(5) {
-	width: 10vw;
-}
-.right thead tr:first-child th:nth-child(6) {
-	width: 10vw;
+.conditions-wrapper .conditions-input {
+	width: 100%;
+	/*margin: 0;*/
 }
