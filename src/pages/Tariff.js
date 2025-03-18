@@ -1,6 +1,6 @@
 import SearchString from "../components/SearchString";
 import Contents from "../components/Contents";
-import initial_data from "../initial_data/initial_data2025";
+import initial_data from "../initial_data/initial_data2024";
 import { useEffect, useState } from "react";
 import PDFComponent from "../components/PDFRender";
 
