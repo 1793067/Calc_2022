@@ -45,34 +45,32 @@ const CalcTable = observer(() => {
     shadowRef.current = e.target; // Запись в ref
     shadowRef.current.classList.remove("unselected");
     e.target.classList.add("selected");
+
+    // Создаем прозрачный пиксель (для скрытия теневого изображения Table)
+    const img = new Image();
+    img.src =
+      "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    e.dataTransfer.setDragImage(img, 0, 0);
   }
 
   function dragOver(e) {
-    e.preventDefault(); // Необходимо для drop
     if (!shadowRef.current) return;
 
     // Находим ближайший родительский элемент <tr>
     let targetRow = e.target.closest("tr");
 
     if (!targetRow) {
-      return; // Если не нашли <tr>, ничего не делаем
+      return; // Если не нашли <tr>, ничего не делаем (или обрабатываем как ошибку)
     }
 
-    const children = Array.from(e.currentTarget.children); //  Дети tbody
+    const children = Array.from(targetRow.parentNode.children) // Получаем детей *родителя* targetRow, а не e.target
+      .slice(4)
+      .slice(0, activities.length);
 
-    const shadowIndex = Array.prototype.indexOf.call(
-      e.currentTarget.children,
-      shadowRef.current
-    );
-    const targetIndex = Array.prototype.indexOf.call(
-      e.currentTarget.children,
-      targetRow
-    );
-
-    if (targetIndex > shadowIndex) {
-      e.currentTarget.insertBefore(shadowRef.current, targetRow.nextSibling);
+    if (children.indexOf(targetRow) > children.indexOf(shadowRef.current)) {
+      targetRow.after(shadowRef.current);
     } else {
-      e.currentTarget.insertBefore(shadowRef.current, targetRow);
+      targetRow.before(shadowRef.current);
     }
 
     shadowRef.current.classList.remove("selected");
@@ -99,7 +97,7 @@ const CalcTable = observer(() => {
             <th>С учетом индексации</th>
           </tr>
         </thead>
-        <tbody onDragOver={dragOver}>
+        <tbody>
           <tr>
             <td className="numeric">1.</td>
             <td colSpan="7">Организационные мероприятия</td>
@@ -139,6 +137,8 @@ const CalcTable = observer(() => {
               className="draggable"
               draggable="true"
               onDragStart={dragStart}
+              onDragOver={dragOver}
+              title="Для перетаскивания удерживайте левую кнопку мыши"
             >
               <td></td>
               <td>{number}</td>

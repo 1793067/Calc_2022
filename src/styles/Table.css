@@ -295,7 +295,7 @@ tfoot .indexes-tr input[type="number"] {
 }
 
 .draggable {
-  /*cursor: move;*/
+  cursor: move;
   height: 10vh;
 }
 
@@ -321,15 +321,16 @@ tfoot .indexes-tr input[type="number"] {
   color: white;
 }
 
-.selected > td:nth-child(2) {
+/*.selected > td:nth-child(2) {
   background: #f312d5;
   color: white;
-}
+}*/
 
 @keyframes blink {
   from {
     opacity: 0.4;
-    background: #1292f3;
+    background: #969ea5;
+    /*background: #1292f3;*/
     color: #fff;
     text-decoration: underline;
   }
