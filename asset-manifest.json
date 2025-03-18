@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Calc_2022/static/css/main.a84dabfd.css",
-    "main.js": "/Calc_2022/static/js/main.70859a1e.js",
-    "static/media/техчасть.pdf": "/Calc_2022/static/media/техчасть.59c20ff43aa75edf2292.pdf",
+    "main.css": "/Calc_2022/static/css/main.c1d64583.css",
+    "main.js": "/Calc_2022/static/js/main.02f4acda.js",
+    "static/media/Приказ ДПР-ТР-255_23.pdf": "/Calc_2022/static/media/Приказ ДПР-ТР-255_23.e840b69e350d45e763ba.pdf",
     "static/media/pdf.svg": "/Calc_2022/static/media/pdf.d18f9093f6424bb5bd8b3b14f722cead.svg",
     "index.html": "/Calc_2022/index.html",
-    "main.a84dabfd.css.map": "/Calc_2022/static/css/main.a84dabfd.css.map",
-    "main.70859a1e.js.map": "/Calc_2022/static/js/main.70859a1e.js.map"
+    "main.c1d64583.css.map": "/Calc_2022/static/css/main.c1d64583.css.map",
+    "main.02f4acda.js.map": "/Calc_2022/static/js/main.02f4acda.js.map"
   },
   "entrypoints": [
-    "static/css/main.a84dabfd.css",
-    "static/js/main.70859a1e.js"
+    "static/css/main.c1d64583.css",
+    "static/js/main.02f4acda.js"
   ]
 }
