@@ -1,7 +1,0 @@
-export const LOGIN_ROUTE = '/login'
-export const REGISTRATION_ROUTE = '/registration'
-export const HOME_ROUTE = '/'
-export const LETTERS_ROUTE = '/letters'
-export const TARIFF_ROUTE = '/tariff'
-export const USER_ROUTE = '/user'
-export const CALCULATION_ROUTE = '/calculation'
