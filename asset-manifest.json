@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Calc_2022/static/css/main.714caf0c.css",
-    "main.js": "/Calc_2022/static/js/main.62cb5869.js",
+    "main.css": "/Calc_2022/static/css/main.9919b3f3.css",
+    "main.js": "/Calc_2022/static/js/main.bab45cce.js",
     "static/media/Приказ ДПР-ТР-255_23.pdf": "/Calc_2022/static/media/Приказ ДПР-ТР-255_23.e840b69e350d45e763ba.pdf",
     "static/media/pdf.svg": "/Calc_2022/static/media/pdf.d18f9093f6424bb5bd8b3b14f722cead.svg",
     "index.html": "/Calc_2022/index.html",
-    "main.714caf0c.css.map": "/Calc_2022/static/css/main.714caf0c.css.map",
-    "main.62cb5869.js.map": "/Calc_2022/static/js/main.62cb5869.js.map"
+    "main.9919b3f3.css.map": "/Calc_2022/static/css/main.9919b3f3.css.map",
+    "main.bab45cce.js.map": "/Calc_2022/static/js/main.bab45cce.js.map"
   },
   "entrypoints": [
-    "static/css/main.714caf0c.css",
-    "static/js/main.62cb5869.js"
+    "static/css/main.9919b3f3.css",
+    "static/js/main.bab45cce.js"
   ]
 }
