@@ -41,29 +41,38 @@ const CalcTable = observer(() => {
       e.preventDefault(); // Предотвращаем перетаскивание, если это не строка
       return;
     }
+
     shadowRef.current = e.target; // Запись в ref
     shadowRef.current.classList.remove("unselected");
     e.target.classList.add("selected");
   }
 
   function dragOver(e) {
+    e.preventDefault(); // Необходимо для drop
     if (!shadowRef.current) return;
 
     // Находим ближайший родительский элемент <tr>
     let targetRow = e.target.closest("tr");
 
     if (!targetRow) {
-      return; // Если не нашли <tr>, ничего не делаем (или обрабатываем как ошибку)
+      return; // Если не нашли <tr>, ничего не делаем
     }
 
-    const children = Array.from(targetRow.parentNode.children) // Получаем детей *родителя* targetRow, а не e.target
-      .slice(4)
-      .slice(0, activities.length);
+    const children = Array.from(e.currentTarget.children); //  Дети tbody
 
-    if (children.indexOf(targetRow) > children.indexOf(shadowRef.current)) {
-      targetRow.after(shadowRef.current);
+    const shadowIndex = Array.prototype.indexOf.call(
+      e.currentTarget.children,
+      shadowRef.current
+    );
+    const targetIndex = Array.prototype.indexOf.call(
+      e.currentTarget.children,
+      targetRow
+    );
+
+    if (targetIndex > shadowIndex) {
+      e.currentTarget.insertBefore(shadowRef.current, targetRow.nextSibling);
     } else {
-      targetRow.before(shadowRef.current);
+      e.currentTarget.insertBefore(shadowRef.current, targetRow);
     }
 
     shadowRef.current.classList.remove("selected");
@@ -90,7 +99,7 @@ const CalcTable = observer(() => {
             <th>С учетом индексации</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody onDragOver={dragOver}>
           <tr>
             <td className="numeric">1.</td>
             <td colSpan="7">Организационные мероприятия</td>
@@ -130,7 +139,6 @@ const CalcTable = observer(() => {
               className="draggable"
               draggable="true"
               onDragStart={dragStart}
-              onDragOver={dragOver}
             >
               <td></td>
               <td>{number}</td>

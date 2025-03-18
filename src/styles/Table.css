@@ -68,7 +68,8 @@ td {
 
 td.numeric {
   text-align: center;
-  position: relative;
+  /*position: relative;*/
+  z-index: 1;
 }
 
 .eraser {
@@ -294,7 +295,7 @@ tfoot .indexes-tr input[type="number"] {
 }
 
 .draggable {
-  cursor: move;
+  /*cursor: move;*/
   height: 10vh;
 }
 
