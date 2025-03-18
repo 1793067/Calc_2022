@@ -22,8 +22,8 @@ const Indexes = observer(() => {
             <span className="indexes-span">
                 <input id="periodI" type="checkbox" checked={conditions.periodI} name="period" onChange={checkboxHandler}/>
                 <span>
-                    <span>{P()} * {i(2026)} + {P()} * {i(2026)} * {i(2027)} * {i(2028)} <span>II половина 2026 года</span></span>
-                    <span>{P()} * {i(2026)} * {i(2027)} + {P()} * {i(2026)} * {i(2027)} * {i(2028)} <span>I половина 2026 года</span></span> 
+                    <span>{P()} * {i(2026)} + {P()} * {i(2026)} * {i(2027)} * {i(2028)} <span>II половина 2025 года</span></span>
+                    <span>{P()} * {i(2026)} * {i(2027)} + {P()} * {i(2026)} * {i(2027)} * {i(2028)} <span>I половина 2025 года</span></span> 
                 </span>
             </span>,
         "4 года" : () => <span>{P()} * {i(2026)} * {i(2027)} + {P()} * {i(2026)} * {i(2027)} * {i(2028)} * {i(2029)}</span>
