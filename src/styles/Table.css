@@ -68,7 +68,7 @@ td {
 
 td.numeric {
   text-align: center;
-  /*position: relative;*/
+  position: relative;
   z-index: 1;
 }
 
@@ -91,7 +91,7 @@ td.numeric {
   content: " ";
   height: 0.9vw;
   width: 0.3vw;
-  background-color: rgba(255, 47, 0, 0.678);
+  background-color: rgba(255, 47, 0, 0.678) !important;
 }
 .eraser::before {
   transform: rotate(45deg);
@@ -294,10 +294,10 @@ tfoot .indexes-tr input[type="number"] {
   margin-bottom: 1vh;
 }
 
-.draggable {
+/*.draggable {
   cursor: move;
   height: 10vh;
-}
+}*/
 
 .draggable td:nth-child(3) {
   font-style: italic;
@@ -308,15 +308,12 @@ tfoot .indexes-tr input[type="number"] {
   opacity: 0.8;
   background: #969ea5;
   color: white;
+  cursor: pointer;
 }
 
-.selected td {
-  /*opacity: 0.9;*/
-  background: #969ea5;
-  color: white;
-}
-
+.selected td,
 .selected input[type="number"] {
+  /*opacity: 0.9;*/
   background: #969ea5;
   color: white;
 }
