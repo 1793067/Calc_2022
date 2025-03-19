@@ -69,7 +69,15 @@ td {
 td.numeric {
   text-align: center;
   position: relative;
-  z-index: 1;
+}
+
+tbody tr:nth-child(1) td.numeric,
+tbody tr:nth-child(2) td.numeric,
+tbody tr:nth-child(3) td.numeric,
+tbody tr:nth-child(4) td.numeric {
+  text-align: center;
+  position: inherit;
+  z-index: 10;
 }
 
 .eraser {
